@@ -222,6 +222,23 @@
       color: #ef476f;
     }
 
+    .price-timer {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 10px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 11px;
+      color: #8d3c5f;
+      box-shadow: 0 6px 14px rgba(138, 64, 174, 0.18);
+    }
+
+    .price-timer strong {
+      font-weight: 700;
+    }
+
     main {
       display: flex;
       flex-direction: column;
@@ -997,6 +1014,24 @@
         padding: 18px 16px 20px;
       }
 
+      .hero-heading {
+        font-size: 30px;
+      }
+
+      .hero-subheading {
+        font-size: 15px;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+
       .hero-list {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -1029,7 +1064,20 @@
 
       .price-chip {
         width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .price-timer {
+        margin-left: 0;
+        width: 100%;
         justify-content: center;
+      }
+
+      .nav-links {
+        font-size: 12px;
+        padding-inline: 10px;
       }
 
       footer {
@@ -1083,6 +1131,9 @@
           </nav>
           <div class="price-chip">
             Сейчас акция: <span>1500 ₽</span> вместо 2499 ₽
+            <span class="price-timer">
+              ⏳ до конца акции: <strong id="saleTimer">07:00:00:00</strong>
+            </span>
           </div>
         </div>
       </header>
@@ -1583,6 +1634,33 @@
     document.getElementById("heroVkBtn").addEventListener("click", openVk);
     document.getElementById("ctaVkBtn").addEventListener("click", openVk);
     document.getElementById("footerVkBtn").addEventListener("click", openVk);
+
+    // Циклический таймер акции на 7 дней (идёт по кругу)
+    (function () {
+      var timerEl = document.getElementById("saleTimer");
+      if (!timerEl) return;
+      var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+      function updateTimer() {
+        var now = Date.now();
+        // Остаток времени в текущем 7‑дневном цикле
+        var remaining = WEEK_MS - (now % WEEK_MS);
+        var totalSeconds = Math.floor(remaining / 1000);
+
+        var days = Math.floor(totalSeconds / (24 * 3600));
+        var hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
+        var minutes = Math.floor((totalSeconds % 3600) / 60);
+        var seconds = totalSeconds % 60;
+
+        function pad(n) { return n < 10 ? "0" + n : String(n); }
+
+        timerEl.textContent =
+          pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    })();
 
     // Текущий год в футере
     document.getElementById("year").textContent = new Date().getFullYear();

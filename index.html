@@ -667,6 +667,118 @@
       font-weight: 700;
     }
 
+    /* TRUST / WHY US */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .trust-card {
+      background: radial-gradient(circle at 0 0, #fff3ff 0, #ffffff 45%, #e7f7ff 100%);
+      border-radius: var(--radius-lg);
+      padding: 14px 12px 16px;
+      box-shadow: 0 14px 26px rgba(162, 112, 221, 0.16);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .trust-icon {
+      font-size: 18px;
+    }
+
+    .trust-title {
+      font-weight: 700;
+    }
+
+    .trust-text {
+      color: #6a457e;
+      line-height: 1.5;
+      font-size: 12px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .testimonial-main {
+      background: radial-gradient(circle at 0 0, #ffe9ff 0, #ffffff 45%, #e6f8ff 100%);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      box-shadow: 0 16px 32px rgba(176, 116, 231, 0.24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-main::before {
+      content: "★ Топовый отзыв";
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255, 215, 90, 0.95);
+      color: #5b3c00;
+      font-weight: 700;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-text {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #6a457e;
+    }
+
+    .testimonial-side {
+      display: grid;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .testimonial-chip {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 10px 12px;
+      box-shadow: 0 10px 22px rgba(155, 111, 220, 0.18);
+    }
+
+    /* FAQ */
+    .faq-list {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 10px 12px 11px;
+      box-shadow: 0 10px 22px rgba(151, 105, 221, 0.16);
+      font-size: 13px;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      color: #6a457e;
+      line-height: 1.6;
+    }
+
     /* EXAMPLES */
     .examples-grid {
       margin-top: 18px;
@@ -893,6 +1005,14 @@
         grid-template-columns: minmax(0, 1fr);
       }
 
+      .trust-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .testimonials {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
       .examples-grid {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -962,7 +1082,7 @@
             <a href="#cta" class="nav-link">Заказать</a>
           </nav>
           <div class="price-chip">
-            Видео-поздравление всего за <span>1500 ₽</span>
+            Сейчас акция: <span>1500 ₽</span> вместо 2499 ₽
           </div>
         </div>
       </header>
@@ -980,7 +1100,7 @@
               Персональное видео-поздравление для вашего ребёнка: любимый персонаж из мультфильма называет его по имени, учитывает возраст и желает всего самого волшебного.
             </p>
             <p class="hero-price-note">
-              Готовое видео в Full HD, с яркой анимацией и тёплым сценарием — всего <strong>1500 ₽</strong>.
+              Готовое видео в Full HD, с яркой анимацией и тёплым сценарием — сейчас по акции всего <strong>1500 ₽</strong> вместо 2499 ₽.
             </p>
 
             <div class="hero-highlight">
@@ -1024,6 +1144,7 @@
 
             <p class="hero-note">
               Нажмите удобный способ связи — откроется чат с готовой формой заказа. Осталось только вписать данные ребёнка.
+              А ещё на сайте спрятан секретный промокод на <strong>скидку 20%</strong> — найдите его и укажите в сообщении.
             </p>
           </div>
 
@@ -1089,6 +1210,7 @@
               поздравляет его по имени, учитывает возраст и желает всего самого волшебного!<br /><br />
               Текст поздравления мы можем написать сами — с учётом ваших пожеланий — или использовать ваш вариант один в один.
               Видео легко отправить по Telegram, WhatsApp, показать на большом экране или включить во время детского праздника.
+              Практика показывает, что дети пересматривают такое поздравление по несколько раз в день и с радостью делятся им с друзьями.
             </p>
           </div>
         </section>
@@ -1141,6 +1263,125 @@
                 </p>
                 <div class="req-badge">Шаг 3</div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- WHY US -->
+        <section class="reveal" id="why-us">
+          <div class="section-card">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              Почему нам доверяют
+            </div>
+            <h2 class="section-title">Чтобы праздник прошёл без сюрпризов</h2>
+            <p class="section-subtitle">
+              Наша задача — сделать вам и ребёнку спокойно и радостно. Ниже — главные принципы, по которым мы работаем с каждым заказом.
+            </p>
+
+            <div class="trust-grid">
+              <div class="trust-card">
+                <div class="trust-title">
+                  <span class="trust-icon">🧾</span>
+                  &nbsp;Оплата только после видео
+                </div>
+                <div class="trust-text">
+                  Никакой предоплаты. Сначала вы получаете готовое поздравление, смотрите, и только затем оплачиваете, если всё нравится.
+                </div>
+              </div>
+              <div class="trust-card">
+                <div class="trust-title">
+                  <span class="trust-icon">⏰</span>
+                  &nbsp;Быстрый срок
+                </div>
+                <div class="trust-text">
+                  Обычно видео готово в течение 3 часов. Если нужен срочный заказ — напишите, постараемся ускориться.
+                </div>
+              </div>
+              <div class="trust-card">
+                <div class="trust-title">
+                  <span class="trust-icon">🎙️</span>
+                  &nbsp;Живой голос и эмоции
+                </div>
+                <div class="trust-text">
+                  Тёплая подача, эмоции и настроение праздника — это не «робот», а живое поздравление, которое приятно пересматривать.
+                </div>
+              </div>
+              <div class="trust-card">
+                <div class="trust-title">
+                  <span class="trust-icon">✅</span>
+                  &nbsp;Правки включены
+                </div>
+                <div class="trust-text">
+                  Если допустили неточность по нашей вине или нужно слегка подправить текст — переделаем ролик бесплатно.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="reveal" id="reviews">
+          <div class="section-card">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              Отзывы родителей
+            </div>
+            <h2 class="section-title">Что говорят после праздника</h2>
+
+            <div class="testimonials">
+              <div class="testimonial-main">
+                <div class="testimonial-name">Анна, мама Даши, 5 лет</div>
+                <div class="testimonial-text">
+                  «Мы включили поздравление Маши на телевизоре во время торта. Даша сначала не понимала, а потом, когда
+                  услышала своё имя, просто сияла. Уже неделю каждое утро просит “ещё раз включить моё видео с Машей”».
+                </div>
+              </div>
+              <div class="testimonial-side">
+                <div class="testimonial-chip">
+                  «Сын смотрел видео от Спанч Боба четыре раза подряд и потом рассказывал всем в садике, что “сам Спанч
+                  Боб его знает по имени”. Для нас это лучший показатель.»
+                </div>
+                <div class="testimonial-chip">
+                  «Делали поздравление от Кунг‑Фу Панды для 9‑летнего племянника. Формат зашёл даже подросткам — показывали на
+                  большом экране, все друзья снимали на телефоны.»
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="reveal" id="faq">
+          <div class="section-card">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              Частые вопросы
+            </div>
+            <h2 class="section-title">Если остались сомнения</h2>
+
+            <div class="faq-list">
+              <div class="faq-item">
+                <div class="faq-q">Как я получу готовое видео?</div>
+                <div class="faq-a">
+                  Мы отправляем ссылку на скачивание и сам файл в удобный мессенджер. Видео в формате mp4, подойдёт для
+                  телефона, телевизора, компьютера и демонстрации на празднике.
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">Можно ли свой текст поздравления?</div>
+                <div class="faq-a">
+                  Да. Можем полностью следовать вашему тексту или доработать его, чтобы звучало более празднично и живо.
+                  Просто пришлите пожелания в сообщении вместе с данными ребёнка.
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">Для какого возраста подойдёт такое видео?</div>
+                <div class="faq-a">
+                  Мы адаптируем стиль и текст под возраст: от 3–4 лет до младших подростков. Для малышей делаем более
+                  простую речь и сказочную подачу, для старших — больше юмора и мотивации.
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -1277,10 +1518,14 @@
               </button>
             </div>
             <div class="cta-badges">
-              <div class="cta-badge">Готовое видео 00:15–00:30</div>
+              <div class="cta-badge">Готовое видео около 1 минуты</div>
               <div class="cta-badge">Формат mp4 / Full HD</div>
               <div class="cta-badge">Можно показывать на празднике и онлайн</div>
+              <div class="cta-badge">Промокод для внимательных: <strong>HERO20</strong> −20%</div>
             </div>
+            <p class="hero-note" style="margin-top:10px; font-size:12px; opacity:0.9;">
+              Что написать в сообщении: 1) имя ребёнка, 2) возраст, 3) мультфильм и герой, 4) дата праздника, 5) промокод (если нашли).
+            </p>
           </div>
         </section>
       </main>

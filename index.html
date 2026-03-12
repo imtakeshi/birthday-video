@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Поздравление от любимого мультгероя</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Персональное видео-поздравление ребёнка с днём рождения от любимого персонажа из мультфильма всего за 1500 рублей." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon: праздничный значок с конфетти -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ff7dc3'/%3E%3Cstop offset='0.5' stop-color='%23ffd75a'/%3E%3Cstop offset='1' stop-color='%234dd0ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='56' height='56' rx='16' ry='16' fill='%23ffffff'/%3E%3Cpath d='M18 43l10-26 18 18-26 8z' fill='url(%23g)'/%3E%3Ccircle cx='20' cy='18' r='3' fill='%23ff9f9a'/%3E%3Ccircle cx='42' cy='16' r='3' fill='%23b27dff'/%3E%3Ccircle cx='46' cy='36' r='3' fill='%234dd0ff'/%3E%3Ccircle cx='26' cy='50' r='2.8' fill='%23ffd75a'/%3E%3C/svg%3E"
+  />
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #ffe6ff 0%, #fff5d6 35%, #e0f7ff 70%, #ffe0f0 100%);
+      --accent-pink: #ff7dc3;
+      --accent-blue: #4dd0ff;
+      --accent-yellow: #ffd75a;
+      --accent-green: #3cd37a;
+      --accent-violet: #b27dff;
+      --text-main: #4b2b63;
+      --shadow-soft: 0 18px 40px rgba(138, 64, 174, 0.25);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --transition-fast: 0.2s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Comfortaa', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .confetti-bg::before,
+    .confetti-bg::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 120, 186, 0.65) 0, transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(125, 215, 255, 0.7) 0, transparent 60%),
+        radial-gradient(circle at 15% 80%, rgba(255, 230, 130, 0.75) 0, transparent 55%),
+        radial-gradient(circle at 90% 75%, rgba(188, 139, 255, 0.8) 0, transparent 60%);
+      mix-blend-mode: screen;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .confetti-bg::after {
+      background-image:
+        radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.65) 0, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.8) 0, transparent 55%);
+      opacity: 0.6;
+      filter: blur(1px);
+    }
+
+    .content {
+      width: min(1120px, 100% - 32px);
+      margin: 0 auto;
+      padding: 20px 0 40px;
+      flex: 1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0 8px;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, #ff7dc3, #ffd75a, #4dd0ff, #b27dff, #ff7dc3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    .logo-badge span {
+      background: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 20px;
+      color: var(--accent-pink);
+    }
+
+    .logo-text-main {
+      font-family: 'Pacifico', cursive;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 8px 18px rgba(138, 64, 174, 0.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-link {
+      position: relative;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff7dc3, #4dd0ff);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(53, 212, 155, 0.16);
+      color: #148a57;
+      font-weight: 700;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .price-chip {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 22px rgba(138, 64, 174, 0.15);
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .price-chip span {
+      font-weight: 700;
+      color: #ef476f;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    section {
+      position: relative;
+    }
+
+    .pill-label {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 18px rgba(133, 77, 166, 0.18);
+      margin-bottom: 12px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff9f9a, #ff7dc3);
+    }
+
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(28px, 4vw, 36px);
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    /* HERO */
+    .hero {
+      /* убираем высоту на весь экран, чтобы сразу были видны следующие блоки */
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      padding: 12px 0 16px;
+    }
+
+    .hero-left {
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 32px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background-image:
+        radial-gradient(circle at 0 0, rgba(255, 159, 179, 0.4) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(166, 215, 255, 0.4) 0, transparent 55%);
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .hero-heading {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(32px, 4.6vw, 44px);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      background: linear-gradient(120deg, #ff7dc3, #ff9f5a, #4dd0ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subheading {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      color: #6a457e;
+    }
+
+    .hero-price-note {
+      font-size: 14px;
+      margin-bottom: 22px;
+      color: #7a558d;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(255, 215, 90, 0.2);
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .hero-highlight strong {
+      color: #ef476f;
+    }
+
+    .hero-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 14px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .hero-list-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-list-badge {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff9f9a, #ff7dc3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      box-shadow: 0 6px 14px rgba(254, 116, 173, 0.5);
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #35d49b, #2fc369);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 16px 32px rgba(31, 180, 107, 0.65);
+      transform: translateY(0);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-primary span.icon {
+      font-size: 18px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      filter: brightness(1.04);
+      box-shadow: 0 20px 40px rgba(31, 180, 107, 0.78);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(31, 180, 107, 0.5);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      opacity: 0.85;
+      margin-top: 10px;
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .mockup {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 32px;
+      background: radial-gradient(circle at 20% 0, #fffaf0 0, #ffe5ff 40%, #e6f8ff 80%);
+      padding: 16px 14px 20px;
+      box-shadow: 0 22px 48px rgba(115, 83, 179, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    .mockup-bubbles {
+      display: flex;
+      gap: 4px;
+    }
+
+    .bubble {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffd75a;
+    }
+
+    .bubble:nth-child(2) { background: #ff7dc3; }
+    .bubble:nth-child(3) { background: #4dd0ff; }
+
+    .mockup-title {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .mockup-screen {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 22px;
+      padding: 10px 10px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .mockup-card {
+      background: radial-gradient(circle at 0 0, #ffe9f5 0, #fefaf4 45%, #e6f6ff 100%);
+      border-radius: 16px;
+      padding: 8px 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 6px 14px rgba(164, 118, 221, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 10% 95%, rgba(255, 255, 255, 0.7) 0, transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .mockup-tag {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      align-self: flex-start;
+    }
+
+    .mockup-caption {
+      font-size: 9px;
+      line-height: 1.3;
+    }
+
+    .mockup-price {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff9f9a, #ff7dc3);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .mockup-player {
+      margin-top: 4px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(243, 235, 255, 0.96);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      gap: 6px;
+    }
+
+    .mockup-player-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mockup-play {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #35d49b, #2fc369);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      box-shadow: 0 8px 18px rgba(38, 186, 118, 0.7);
+      flex-shrink: 0;
+    }
+
+    .hero-stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-star {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0, #ffe27a 45%, #f093fb 75%, #f5576c 100%);
+      box-shadow: 0 8px 18px rgba(246, 116, 167, 0.6);
+      opacity: 0.85;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+
+    .hero-star:nth-child(1) { top: -6px; left: 18%; animation-delay: 0s; }
+    .hero-star:nth-child(2) { top: 24%; right: -8px; width: 18px; height: 18px; animation-delay: 1.4s; }
+    .hero-star:nth-child(3) { bottom: -10px; left: 35%; width: 14px; height: 14px; animation-delay: 0.7s; }
+
+    @keyframes float {
+      0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+      100% { transform: translate3d(6px, -14px, 0) rotate(15deg); }
+    }
+
+    /* GENERIC SECTION WRAPPER */
+    .section-card {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: var(--radius-xl);
+      padding: 24px 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* HOW IT WORKS */
+    .how-text {
+      max-width: 720px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* REQUIREMENTS */
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .req-card {
+      background: radial-gradient(circle at 20% 0, #ffe5ff 0, #ffffff 45%, #e7f7ff 100%);
+      border-radius: var(--radius-lg);
+      padding: 16px 14px 18px;
+      box-shadow: 0 16px 30px rgba(162, 112, 221, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .req-chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .req-emoji {
+      font-size: 15px;
+    }
+
+    .req-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .req-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #6a457e;
+    }
+
+    .req-badge {
+      position: absolute;
+      right: 10px;
+      bottom: 8px;
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #9b51e0;
+      font-weight: 700;
+    }
+
+    /* EXAMPLES */
+    .examples-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .example-card {
+      background: radial-gradient(circle at 20% 0, #fff1f7 0, #ffffff 40%, #e9f9ff 100%);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(151, 105, 221, 0.3);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .example-media {
+      position: relative;
+      overflow: hidden;
+      padding: 12px 12px 0;
+    }
+
+    .example-img-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      position: relative;
+    }
+
+    .example-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      text-align: center;
+      padding: 10px;
+      color: #6a457e;
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.85) 0,
+        rgba(255, 255, 255, 0.85) 8px,
+        rgba(255, 232, 248, 0.9) 8px,
+        rgba(255, 232, 248, 0.9) 16px
+      );
+    }
+
+    .example-bubble {
+      position: absolute;
+      right: 16px;
+      bottom: -14px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #fed766 35%, #ff7dc3 75%, #845ec2 100%);
+      box-shadow: 0 12px 26px rgba(160, 94, 233, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .example-body {
+      padding: 16px 16px 14px;
+      font-size: 13px;
+    }
+
+    .example-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .example-caption {
+      color: #6a457e;
+      line-height: 1.6;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      text-align: center;
+    }
+
+    .cta-inner {
+      background: radial-gradient(circle at 0 0, #ffe4ff 0, #fff 38%, #e3f7ff 100%);
+      border-radius: 999px;
+      padding: 18px 18px 20px;
+      box-shadow: 0 22px 46px rgba(142, 81, 220, 0.38);
+      display: inline-flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      width: min(680px, 100%);
+    }
+
+    .cta-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(22px, 3vw, 26px);
+    }
+
+    .cta-sub {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .cta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .cta-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 6px 14px rgba(145, 83, 218, 0.3);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 32px;
+      padding: 18px 16px 24px;
+      background: linear-gradient(135deg, rgba(132, 94, 194, 0.25), rgba(255, 185, 238, 0.25));
+      border-radius: 24px 24px 0 0;
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-link-pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.95);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 18px rgba(126, 77, 182, 0.35);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .footer-link-pill:hover {
+      transform: translateY(-1px);
+      background: #ffffff;
+      box-shadow: 0 11px 24px rgba(126, 77, 182, 0.5);
+    }
+
+    .footer-note {
+      opacity: 0.8;
+    }
+
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: unset;
+      }
+      .hero-right {
+        order: -1;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .content {
+        width: min(100% - 24px, 560px);
+      }
+
+      .hero-left {
+        padding: 18px 16px 20px;
+      }
+
+      .hero-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .requirements-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .examples-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-inner {
+        border-radius: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-card {
+        padding: 18px 16px;
+      }
+
+      .price-chip {
+        width: 100%;
+        justify-content: center;
+      }
+
+      footer {
+        padding-inline: 12px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      .content {
+        width: min(1240px, 100% - 60px);
+      }
+      .hero-left {
+        padding: 26px 28px 30px;
+      }
+      .section-card {
+        padding: 28px 26px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+      .content {
+        width: min(1380px, 100% - 80px);
+      }
+    }
+  </style>
+</head>
+<body class="confetti-bg">
+  <div class="page">
+    <div class="content">
+      <header>
+        <div class="logo">
+          <div class="logo-badge">
+            <span>🎉</span>
+          </div>
+          <div>
+            <div class="logo-text-main">Magic Birthday Video</div>
+            <div style="font-size:12px; opacity:0.8;">Поздравление ребёнка от мультгероя</div>
+          </div>
+        </div>
+        <div class="nav">
+          <nav class="nav-links">
+            <a href="#how" class="nav-link">Как это работает</a>
+            <a href="#requirements" class="nav-link">Что нужно для заказа</a>
+            <a href="#examples" class="nav-link">Примеры</a>
+            <a href="#cta" class="nav-link">Заказать</a>
+          </nav>
+          <div class="price-chip">
+            Видео-поздравление всего за <span>1500 ₽</span>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-left">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              Волшебное поздравление с днём рождения
+            </div>
+            <h1 class="hero-heading">Поздравление от любимого мультгероя!</h1>
+            <p class="hero-subheading">
+              Персональное видео-поздравление для вашего ребёнка: любимый персонаж из мультфильма называет его по имени, учитывает возраст и желает всего самого волшебного.
+            </p>
+            <p class="hero-price-note">
+              Готовое видео в Full HD, с яркой анимацией и тёплым сценарием — всего <strong>1500 ₽</strong>.
+            </p>
+
+            <div class="hero-highlight">
+              <strong>Важно:</strong>
+              вы позже приложите свои фотографии и видео персонажей — сайт уже подготовлен к их использованию (все изображения ниже — плейсхолдеры, которые легко заменить).
+            </div>
+
+            <div class="hero-list">
+              <div class="hero-list-item">
+                <div class="hero-list-badge">1</div>
+                <div>Выбираете мультгероя ребёнка</div>
+              </div>
+              <div class="hero-list-item">
+                <div class="hero-list-badge">2</div>
+                <div>Мы сценарий &amp; голос берём на себя</div>
+              </div>
+              <div class="hero-list-item">
+                <div class="hero-list-badge">3</div>
+                <div>Через 1–2 дня готовое видео</div>
+              </div>
+              <div class="hero-list-item">
+                <div class="hero-list-badge">4</div>
+                <div>Отправляете ребёнку в любой мессенджер</div>
+              </div>
+            </div>
+
+            <button class="btn-primary" id="heroTelegramBtn" type="button">
+              <span class="icon">💬</span>
+              <span>Заказать в Telegram</span>
+            </button>
+
+            <p class="hero-note">
+              Нажимая на кнопку, вы просто переходите в Telegram-чат, где мы ответим на любые вопросы и оформим заказ.
+            </p>
+          </div>
+
+          <div class="hero-right">
+            <div class="mockup">
+              <div class="mockup-header">
+                <div class="mockup-bubbles">
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                </div>
+                <div class="mockup-title">Пример оформления заказа</div>
+              </div>
+              <div class="mockup-screen">
+                <div class="mockup-grid">
+                  <div class="mockup-card">
+                    <div class="mockup-tag">Маша и Медведь</div>
+                    <div class="mockup-caption">
+                      «Привет, Соня! Это Маша! Я узнала, что тебе уже 5 лет...»
+                    </div>
+                  </div>
+                  <div class="mockup-card">
+                    <div class="mockup-price">
+                      <span>1500 ₽</span>
+                      <span style="opacity:0.9; font-weight:500;">за готовое видео</span>
+                    </div>
+                    <div class="mockup-caption">
+                      Имя ребёнка, возраст, любимый герой и пара фактов — и мы создаём тёплое поздравление.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mockup-player">
+                  <div class="mockup-player-left">
+                    <div class="mockup-play">▶</div>
+                    <div>
+                      <div style="font-weight:700;">Видео-поздравление «Маша»</div>
+                      <div style="font-size:9px; opacity:0.8;">00:58 — пример из наших работ</div>
+                    </div>
+                  </div>
+                  <div style="font-size:9px; opacity:0.8;">HD / mp4</div>
+                </div>
+              </div>
+              <div class="hero-stars">
+                <div class="hero-star"></div>
+                <div class="hero-star"></div>
+                <div class="hero-star"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="reveal" id="how">
+          <div class="section-card">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              Как это работает
+            </div>
+            <h2 class="section-title">Персональное волшебство за пару шагов</h2>
+            <p class="how-text">
+              Мы создаём персональное видео, где любимый персонаж вашего ребёнка (Маша, Спанч Боб, Кунг‑Фу Панда и любой другой)
+              поздравляет его по имени, учитывает возраст и желает всего самого волшебного!<br /><br />
+              Текст поздравления мы можем написать сами — с учётом ваших пожеланий — или использовать ваш вариант один в один.
+              Видео легко отправить по Telegram, WhatsApp, показать на большом экране или включить во время детского праздника.
+            </p>
+          </div>
+        </section>
+
+        <!-- REQUIREMENTS -->
+        <section class="reveal" id="requirements">
+          <div class="section-card">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              Что нужно от вас
+            </div>
+            <h2 class="section-title">Три простых шага для заказа</h2>
+            <p class="section-subtitle">
+              Напишите нам в Telegram и просто пришлите три вещи — остальное мы придумаем, озвучим и красиво оформим сами.
+            </p>
+
+            <div class="requirements-grid">
+              <article class="req-card">
+                <div class="req-chip">
+                  <span class="req-emoji">✨</span>
+                  Самое важное о ребёнке
+                </div>
+                <h3 class="req-title">Имя ребёнка</h3>
+                <p class="req-text">
+                  Как мы должны обращаться к ребёнку в ролике (полное имя или уменьшительное). Можно добавить, как вы его ласково называете.
+                </p>
+                <div class="req-badge">Шаг 1</div>
+              </article>
+
+              <article class="req-card">
+                <div class="req-chip">
+                  <span class="req-emoji">🎂</span>
+                  Сколько лет исполняется
+                </div>
+                <h3 class="req-title">Возраст ребёнка</h3>
+                <p class="req-text">
+                  Укажите возраст и дату праздника, чтобы герой поздравил вовремя: «Тебе уже 6 лет!» и сделал пожелания по возрасту.
+                </p>
+                <div class="req-badge">Шаг 2</div>
+              </article>
+
+              <article class="req-card">
+                <div class="req-chip">
+                  <span class="req-emoji">🎬</span>
+                  Любимый мультфильм
+                </div>
+                <h3 class="req-title">Мультфильм и персонаж</h3>
+                <p class="req-text">
+                  Напишите, какой мультфильм и герой нравятся ребёнку. Например: «Маша и Медведь — Маша», «Спанч Боб» или «Кунг‑Фу Панда — По».
+                </p>
+                <div class="req-badge">Шаг 3</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXAMPLES -->
+        <section class="reveal" id="examples">
+          <div class="section-card">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              Примеры наших поздравлений
+            </div>
+            <h2 class="section-title">Любимые мультгерои в одном месте</h2>
+            <p class="section-subtitle">
+              Ниже — примерные карточки будущих видео. Сейчас здесь стоят плейсхолдеры: позже вы приложите
+              <strong>свои</strong> фотографии и видео персонажей, просто заменив файлы в разметке.
+            </p>
+
+            <div class="examples-grid">
+              <!-- Masha -->
+              <article class="example-card">
+                <div class="example-media">
+                  <div class="example-img-wrap">
+                    <img src="masha.jpg" alt="Пример поздравления от Маши из мультфильма «Маша и Медведь»" />
+                  </div>
+                  <div class="example-bubble">HD видео</div>
+                </div>
+                <div class="example-body">
+                  <div class="example-name">Маша («Маша и Медведь»)</div>
+                  <div class="example-caption">
+                    Пример видео-поздравления от Маши. Она по-озорному обращается к ребёнку по имени, шутит
+                    и желает самых волшебных приключений.
+                  </div>
+                </div>
+              </article>
+
+              <!-- SpongeBob (видео-пример) -->
+              <article class="example-card">
+                <div class="example-media">
+                  <div class="example-img-wrap">
+                    <video
+                      src="spongebob.mp4"
+                      controls
+                      playsinline
+                      poster="file:///C:/Users/Светлана/.cursor/projects/c-Users-OneDrive/assets/c__Users__________AppData_Roaming_Cursor_User_workspaceStorage_e6dbe1cfe91c11f0c730a572835a39e1_images________-ea5db9b2-a25d-4a75-bc83-06b1c5871c28.png"
+                      style="width: 100%; display: block; border-radius: 18px;"
+                    >
+                      Ваш браузер не поддерживает видео-тег.
+                    </video>
+                  </div>
+                  <div class="example-bubble">Весёлый герой</div>
+                </div>
+                <div class="example-body">
+                  <div class="example-name">Спанч Боб</div>
+                  <div class="example-caption">
+                    Пример видео-поздравления от Спанч Боба. Яркое подводное настроение, шутки и танцы —
+                    ребёнок точно запомнит этот день рождения.
+                  </div>
+                </div>
+              </article>
+
+              <!-- Kung Fu Panda (видео-пример) -->
+              <article class="example-card">
+                <div class="example-media">
+                  <div class="example-img-wrap">
+                    <video
+                      src="po.mp4"
+                      controls
+                      playsinline
+                      poster="file:///C:/Users/Светлана/.cursor/projects/c-Users-OneDrive/assets/c__Users__________AppData_Roaming_Cursor_User_workspaceStorage_e6dbe1cfe91c11f0c730a572835a39e1_images______-9fcce784-fe26-4de2-8ead-597fafd8f490.png"
+                      style="width: 100%; display: block; border-radius: 18px;"
+                    >
+                      Ваш браузер не поддерживает видео-тег.
+                    </video>
+                  </div>
+                  <div class="example-bubble">Боевой настрой</div>
+                </div>
+                <div class="example-body">
+                  <div class="example-name">Кунг‑Фу Панда</div>
+                  <div class="example-caption">
+                    Пример видео-поздравления от Кунг‑Фу Панды. Герой вдохновляет ребёнка верить в себя и
+                    с улыбкой покорять новые высоты.
+                  </div>
+                </div>
+              </article>
+
+              <!-- Ladybug (видео-пример) -->
+              <article class="example-card">
+                <div class="example-media">
+                  <div class="example-img-wrap">
+                    <video
+                      src="ladybug.mp4"
+                      controls
+                      playsinline
+                      poster="file:///C:/Users/Светлана/.cursor/projects/c-Users-OneDrive/assets/c__Users__________AppData_Roaming_Cursor_User_workspaceStorage_e6dbe1cfe91c11f0c730a572835a39e1_images_________-84b61cfc-240e-4a0b-ba95-22b7db8be508.png"
+                      style="width: 100%; display: block; border-radius: 18px;"
+                    >
+                      Ваш браузер не поддерживает видео-тег.
+                    </video>
+                  </div>
+                  <div class="example-bubble">Новый герой</div>
+                </div>
+                <div class="example-body">
+                  <div class="example-name">Леди Баг</div>
+                  <div class="example-caption">
+                    Пример видео-поздравления от Леди Баг. Волшебная атмосфера, сказочный лес и любимый герой,
+                    который обращается к ребёнку по имени.
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA BUTTON -->
+        <section class="reveal cta-section" id="cta">
+          <div class="cta-inner">
+            <div class="cta-title">Хочу поздравление от мультгероя!</div>
+            <p class="cta-sub">
+              Напишите нам в Telegram, отправьте имя и возраст ребёнка, любимый мультфильм — и уже скоро у вас будет
+              персональное видео-поздравление всего за <strong>1500 ₽</strong>.
+            </p>
+            <button class="btn-primary" id="ctaTelegramBtn" type="button">
+              <span class="icon">📲</span>
+              <span>Написать в Telegram</span>
+            </button>
+            <div class="cta-badges">
+              <div class="cta-badge">Готовое видео 00:15–00:30</div>
+              <div class="cta-badge">Формат mp4 / Full HD</div>
+              <div class="cta-badge">Можно показывать на празднике и онлайн</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-links">
+          <div class="footer-link-pill" id="footerTelegramBtn">
+            <span>💬</span>
+            <span>Связаться в Telegram</span>
+          </div>
+        </div>
+        <div class="footer-note">
+          © <span id="year"></span> Поздравление от мультгероя. Все права защищены.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Ссылка на ваш Telegram с готовым шаблоном сообщения-заказа
+    var TELEGRAM_URL =
+      "https://t.me/tkh1305" +
+      "?text=" +
+      encodeURIComponent(
+        "Привет! Хочу заказать видео‑поздравление от мультгероя за 1500 ₽.\n\n" +
+        "Данные ребёнка (просто впишите вместо подсказок):\n" +
+        "Имя: [имя ребёнка]\n" +
+        "Возраст: [количество лет]\n" +
+        "Мультфильм и персонаж: [например: «Маша и Медведь — Маша»]\n" +
+        "Дата праздника: [дд.мм.гггг]\n" +
+        "Дополнительные пожелания: [если есть]"
+      );
+
+    function openTelegram() {
+      window.open(TELEGRAM_URL, "_blank");
+    }
+
+    document.getElementById("heroTelegramBtn").addEventListener("click", openTelegram);
+    document.getElementById("ctaTelegramBtn").addEventListener("click", openTelegram);
+    document.getElementById("footerTelegramBtn").addEventListener("click", openTelegram);
+
+    // Текущий год в футере
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Анимации появления блоков при скролле
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+
+    function handleReveal() {
+      var trigger = window.innerHeight * 0.88;
+      revealEls.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top <= trigger) {
+          el.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", handleReveal);
+    window.addEventListener("load", handleReveal);
+  </script>
+</body>
+</html>

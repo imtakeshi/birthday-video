@@ -169,6 +169,13 @@
       background: rgba(255, 255, 255, 0.86);
       box-shadow: 0 8px 18px rgba(138, 64, 174, 0.18);
       backdrop-filter: blur(8px);
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
 
     .nav-link {
@@ -1078,6 +1085,9 @@
       .nav-links {
         font-size: 12px;
         padding-inline: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
       }
 
       footer {

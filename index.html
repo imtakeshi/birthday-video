@@ -396,6 +396,29 @@
       box-shadow: 0 8px 20px rgba(31, 180, 107, 0.5);
     }
 
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366, #128c7e) !important;
+      box-shadow: 0 14px 28px rgba(37, 211, 102, 0.5) !important;
+    }
+    .btn-whatsapp:hover {
+      box-shadow: 0 18px 36px rgba(37, 211, 102, 0.6) !important;
+    }
+
+    .btn-vk {
+      background: linear-gradient(135deg, #4c75a3, #5b7fa3) !important;
+      box-shadow: 0 14px 28px rgba(76, 117, 163, 0.5) !important;
+    }
+    .btn-vk:hover {
+      box-shadow: 0 18px 36px rgba(76, 117, 163, 0.6) !important;
+    }
+
     .hero-note {
       font-size: 12px;
       opacity: 0.85;
@@ -962,7 +985,7 @@
 
             <div class="hero-highlight">
               <strong>Важно:</strong>
-              вы позже приложите свои фотографии и видео персонажей — сайт уже подготовлен к их использованию (все изображения ниже — плейсхолдеры, которые легко заменить).
+              никакой предоплаты — вы оплачиваете только после готового видео-поздравления, когда всё понравится.
             </div>
 
             <div class="hero-list">
@@ -976,7 +999,7 @@
               </div>
               <div class="hero-list-item">
                 <div class="hero-list-badge">3</div>
-                <div>Через 1–2 дня готовое видео</div>
+                <div>Через 1–2 часа готовое видео</div>
               </div>
               <div class="hero-list-item">
                 <div class="hero-list-badge">4</div>
@@ -984,13 +1007,23 @@
               </div>
             </div>
 
-            <button class="btn-primary" id="heroTelegramBtn" type="button">
-              <span class="icon">💬</span>
-              <span>Заказать в Telegram</span>
-            </button>
+            <div class="contact-buttons">
+              <button class="btn-primary" id="heroTelegramBtn" type="button">
+                <span class="icon">💬</span>
+                <span>Telegram</span>
+              </button>
+              <button class="btn-primary btn-whatsapp" id="heroWhatsappBtn" type="button">
+                <span class="icon">📱</span>
+                <span>WhatsApp</span>
+              </button>
+              <button class="btn-primary btn-vk" id="heroVkBtn" type="button">
+                <span class="icon">ВК</span>
+                <span>ВКонтакте</span>
+              </button>
+            </div>
 
             <p class="hero-note">
-              Нажимая на кнопку, вы просто переходите в Telegram-чат, где мы ответим на любые вопросы и оформим заказ.
+              Нажмите удобный способ связи — откроется чат с готовой формой заказа. Осталось только вписать данные ребёнка.
             </p>
           </div>
 
@@ -1226,13 +1259,23 @@
           <div class="cta-inner">
             <div class="cta-title">Хочу поздравление от мультгероя!</div>
             <p class="cta-sub">
-              Напишите нам в Telegram, отправьте имя и возраст ребёнка, любимый мультфильм — и уже скоро у вас будет
+              Напишите нам в удобный мессенджер, отправьте имя и возраст ребёнка, любимый мультфильм — и уже скоро у вас будет
               персональное видео-поздравление всего за <strong>1500 ₽</strong>.
             </p>
-            <button class="btn-primary" id="ctaTelegramBtn" type="button">
-              <span class="icon">📲</span>
-              <span>Написать в Telegram</span>
-            </button>
+            <div class="contact-buttons" style="justify-content:center;">
+              <button class="btn-primary" id="ctaTelegramBtn" type="button">
+                <span class="icon">💬</span>
+                <span>Telegram</span>
+              </button>
+              <button class="btn-primary btn-whatsapp" id="ctaWhatsappBtn" type="button">
+                <span class="icon">📱</span>
+                <span>WhatsApp</span>
+              </button>
+              <button class="btn-primary btn-vk" id="ctaVkBtn" type="button">
+                <span class="icon">ВК</span>
+                <span>ВКонтакте</span>
+              </button>
+            </div>
             <div class="cta-badges">
               <div class="cta-badge">Готовое видео 00:15–00:30</div>
               <div class="cta-badge">Формат mp4 / Full HD</div>
@@ -1248,7 +1291,15 @@
         <div class="footer-links">
           <div class="footer-link-pill" id="footerTelegramBtn">
             <span>💬</span>
-            <span>Связаться в Telegram</span>
+            <span>Telegram</span>
+          </div>
+          <div class="footer-link-pill" id="footerWhatsappBtn">
+            <span>📱</span>
+            <span>WhatsApp</span>
+          </div>
+          <div class="footer-link-pill" id="footerVkBtn">
+            <span>ВК</span>
+            <span>ВКонтакте</span>
           </div>
         </div>
         <div class="footer-note">
@@ -1259,27 +1310,34 @@
   </div>
 
   <script>
-    // Ссылка на ваш Telegram с готовым шаблоном сообщения-заказа
-    var TELEGRAM_URL =
-      "https://t.me/tkh1305" +
-      "?text=" +
-      encodeURIComponent(
-        "Привет! Хочу заказать видео‑поздравление от мультгероя за 1500 ₽.\n\n" +
-        "Данные ребёнка (просто впишите вместо подсказок):\n" +
-        "Имя: [имя ребёнка]\n" +
-        "Возраст: [количество лет]\n" +
-        "Мультфильм и персонаж: [например: «Маша и Медведь — Маша»]\n" +
-        "Дата праздника: [дд.мм.гггг]\n" +
-        "Дополнительные пожелания: [если есть]"
-      );
+    // Шаблон сообщения-заказа (тот же для всех мессенджеров)
+    var ORDER_MSG =
+      "Привет! Хочу заказать видео‑поздравление от мультгероя за 1500 ₽.\n\n" +
+      "Данные ребёнка (просто впишите вместо подсказок):\n" +
+      "Имя: [имя ребёнка]\n" +
+      "Возраст: [количество лет]\n" +
+      "Мультфильм и персонаж: [например: «Маша и Медведь — Маша»]\n" +
+      "Дата праздника: [дд.мм.гггг]\n" +
+      "Дополнительные пожелания: [если есть]";
+    var ORDER_ENC = encodeURIComponent(ORDER_MSG);
 
-    function openTelegram() {
-      window.open(TELEGRAM_URL, "_blank");
-    }
+    var TELEGRAM_URL = "https://t.me/tkh1305?text=" + ORDER_ENC;
+    var WHATSAPP_URL = "https://wa.me/79999726234?text=" + ORDER_ENC;
+    var VK_URL = "https://vk.com/write1103224457?message=" + ORDER_ENC;
+
+    function openTelegram() { window.open(TELEGRAM_URL, "_blank"); }
+    function openWhatsapp() { window.open(WHATSAPP_URL, "_blank"); }
+    function openVk() { window.open(VK_URL, "_blank"); }
 
     document.getElementById("heroTelegramBtn").addEventListener("click", openTelegram);
     document.getElementById("ctaTelegramBtn").addEventListener("click", openTelegram);
     document.getElementById("footerTelegramBtn").addEventListener("click", openTelegram);
+    document.getElementById("heroWhatsappBtn").addEventListener("click", openWhatsapp);
+    document.getElementById("ctaWhatsappBtn").addEventListener("click", openWhatsapp);
+    document.getElementById("footerWhatsappBtn").addEventListener("click", openWhatsapp);
+    document.getElementById("heroVkBtn").addEventListener("click", openVk);
+    document.getElementById("ctaVkBtn").addEventListener("click", openVk);
+    document.getElementById("footerVkBtn").addEventListener("click", openVk);
 
     // Текущий год в футере
     document.getElementById("year").textContent = new Date().getFullYear();
